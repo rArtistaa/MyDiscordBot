@@ -81,10 +81,14 @@ async def on_ready():
 @bot.command()
 async def onlinetest(ctx):
     em = discord.Embed(title='Caça Esportiva (LTDA)', description=' ', color=0x41BFBF)
-
     em.add_field(name='Online test', value='Coe coe.')
-
     await ctx.send(embed=em)
+
+
+class QueueEntry:
+    def __init__(self, player, author):
+        self.player = player
+        self.author = author
 
 
 @bot.command(name='play', aliases=['p'])
@@ -96,8 +100,8 @@ async def play(ctx, url):
     player = await YTDLSource.from_url(url, loop=bot.loop, stream=True)
 
     if ctx.voice_client and ctx.voice_client.is_playing():
-        queue.append(player)
-        await ctx.send(f'**{player.title}** foi adicionada à fila.')
+        queue.append(QueueEntry(player, ctx.author))
+        await ctx.send(f'**{player.title}** foi adicionada à fila por {ctx.author.display_name}.')
     else:
         sessionChannel = await channel.connect()
         sessionChannel.guild.voice_client.play(player, after=lambda e: print(f'Player Error: {e}')
@@ -141,6 +145,21 @@ async def skip(ctx):
             await ctx.send('Fila de reprodução vazia. Use "!play" ou "!p" para adicionar mais múscias.')
     else:
         await ctx.send('Nenhuma múscia está sendo reproduzina no momento.')
+
+
+@bot.command(name='queue', aliases=['q'])
+async def show_queue(ctx):
+    if queue:
+        embed = discord.Embed(title=f'Fila de Reprodução: {len(queue)} musica(s)', color=0x41BFBF)
+        for index, queue_entry in enumerate(queue):
+            embed.add_field(
+                name=f"{index + 1}. {queue_entry.player.title}",
+                value=f"Requisitado por: {queue_entry.author.display_name}",
+                inline=False
+            )
+        await ctx.send(embed=embed)
+    else:
+        await ctx.send('A fila de reprodução está vazia.')
 
 
 async def check_inactive():
