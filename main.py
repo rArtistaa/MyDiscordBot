@@ -87,17 +87,6 @@ async def onlinetest(ctx):
     await ctx.send(embed=em)
 
 
-# Mostrar canal Twitch Edu
-@bot.command(name='t.tv/dux', aliases=['dux', 'duxsbm', 'Dux', 'DuxSBM', 'DUXSBM'])
-async def showttchannel(ctx):
-    em = discord.Embed(title='LIVE AGORA!', description=' ', color=0x41BFBF)
-    em.set_image(url='')
-    em.add_field(name='Twitch de DuxSBM', value='https://www.twitch.tv/duxsbm')
-
-    await ctx.send(embed=em)
-
-
-# Comando para bot entrar em uma callS
 @bot.command(name='play', aliases=['p'])
 async def play(ctx, url):
     if not ctx.author.voice:
@@ -154,7 +143,6 @@ async def skip(ctx):
         await ctx.send('Nenhuma múscia está sendo reproduzina no momento.')
 
 
-# Checar tempo inativo em call para sair
 async def check_inactive():
     while True:
         for channel_id, last_time in last_activity.items():
@@ -176,8 +164,7 @@ MUSIC CODE END -----------------------------------------------------------------
 @bot.command(name='info', aliases=['i'])
 async def info_embed(ctx):
     embed1 = discord.Embed(title='Caça Esportiva (LDTA)', description='Sobre o Grupo',
-                                 color=0x41BFBF
-    )
+                                 color=0x41BFBF)
 
     embed1.set_image(url=r'https://encrypted-tbn0.gstatic.com/'
                          r'images?q=tbn:ANd9GcSYlHi_VIJ4xV--8CFg'
@@ -189,7 +176,6 @@ async def info_embed(ctx):
     # BARROKA
     embed2 = discord.Embed(title='Membros Oficiais 1/9', color=0xffffff)
     embed2.add_field(name='Arthur Rossiter', value='Barroka mcz (Forjador)', inline=False)
-
 
     # PERES
     embed3 = discord.Embed(title='Membros Oficiais 2/9', color=0x000000)
@@ -204,7 +190,7 @@ async def info_embed(ctx):
     # VINICIUS
     embed5 = discord.Embed(title='Membros Oficiais 4/9', color=0x000000)
     embed5.add_field(name='Gabriel Vinicius', value='o Inimigo da moda (Concierge)', inline=False)
-    embed5.set_image(url=r'https://imgur.com/LLngs90')
+    embed5.set_image(url=r'https://i.imgur.com/LLngs90.jpg?1')
 
     # PEDRINHO
     embed6 = discord.Embed(title='Membros Oficiais 5/9', color=0xffffff)
@@ -214,7 +200,7 @@ async def info_embed(ctx):
     # JH
     embed7 = discord.Embed(title='Membros Oficiais 6/9', color=0x000000)
     embed7.add_field(name='Joao Henrique', value='jh rebola neles (Flanelinha)', inline=False)
-    embed7.set_image(url=r'https://imgur.com/USfhl5K')
+    embed7.set_image(url=r'https://i.imgur.com/USfhl5K.jpg')
 
     # KHAZENN
     embed8 = discord.Embed(title='Membros Oficiais 7/9', color=0xffffff)
