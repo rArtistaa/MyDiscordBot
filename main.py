@@ -2,8 +2,12 @@ import discord
 from discord.ext import commands
 import asyncio
 import yt_dlp as youtube_dl
-from token import TOKEN
+import json
 
+
+with open('config.json', 'r') as config_file:
+    config = json.load(config_file)
+    TOKEN = config['token']
 
 intents = discord.Intents.all()
 bot = commands.Bot(command_prefix='!', intents=intents)
