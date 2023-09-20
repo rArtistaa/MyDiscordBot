@@ -2,8 +2,8 @@ import discord
 from discord.ext import commands
 import asyncio
 import yt_dlp as youtube_dl
+from token import TOKEN
 
-TOKEN = 'MTE1MzAwNDA3Mjg3NDU0NTE1Mg.GPrtQh.98uNsoASJ3gdRmSMyfz3sixjaRBW2yCIBU5zzI'
 
 intents = discord.Intents.all()
 bot = commands.Bot(command_prefix='!', intents=intents)
