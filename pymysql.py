@@ -6,3 +6,7 @@ connection = pymysql.connection(
     password='',
     database=''
 )
+
+'''
+USELESS FOR NOW
+'''
