@@ -3,6 +3,9 @@ from discord.ext import commands
 import asyncio
 import yt_dlp as youtube_dl
 import json
+from akinator.async_aki import Akinator
+import akinator
+
 
 
 with open('config.json', 'r') as config_file:
@@ -265,5 +268,6 @@ async def info_embed(ctx):
 
         except TimeoutError:
             break
+
 
 bot.run(TOKEN)
