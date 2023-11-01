@@ -1,0 +1,9 @@
+discord~=2.3.2
+asyncio~=3.4.3
+PyMySQL~=1.1.0
+mutagen
+pycryptodomex
+websockets
+brotli; platform_python_implementation=='CPython'
+brotlicffi; platform_python_implementation!='CPython'
+certifi
