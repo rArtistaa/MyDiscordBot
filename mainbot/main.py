@@ -17,6 +17,5 @@ MUSIC
 '''
 
 info_embed()
-akinator()
 
 bot.run(TOKEN)
